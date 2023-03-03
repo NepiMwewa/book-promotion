@@ -18,22 +18,6 @@ function toggleMenu(){
   }
 }
 
-function goToSection(openingSection){
-  toggleContentsTable();
-  if(openingSection != '' && openingSection != null){
-    let parentElement = document.getElementById(openingSection);
-    let buttonElement = parentElement.getElementsByClassName('collapsible')[0];
-    let openElement = parentElement.getElementsByClassName('content')[0];
-    if (openElement.style.maxHeight == 0){
-      buttonElement.classList.toggle('active');
-      openElement.style.marginTop = 60 + "px";
-      openElement.style.marginBottom = 60 + "px";
-      openElement.style.maxHeight = openElement.scrollHeight + "px";
-      
-    }
-  }
-}
-
 
 function escapeFromMenu(event){
   if(event.key === "Escape" && menuToggle == true)
@@ -69,41 +53,6 @@ function topFunction() {
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
-function setupContentsTable(){
-var fold = document.getElementById("button-contents");
-    if(fold){
-    fold.addEventListener("click", function() {
-      this.classList.toggle("active");
-      var content = this.nextElementSibling;
-      let contentContainer = document.getElementById("contents-table")
-      if (contentContainer.classList.contains("content-table-open")){
-        contentContainer.classList.remove("content-table-open");
-        content.classList.remove("content-open");
-        content.ariaExpanded = false;
-      } else {
-        contentContainer.classList.add("content-table-open");
-        content.classList.add("content-open");
-        content.ariaExpanded = true;
-      }
-    });
-  }
-}
-function toggleContentsTable(){
-  let content = document.getElementById("button-contents");
-  let contentContainer = document.getElementById("contents-table")
-  content.classList.toggle("active");
-    if (contentContainer.classList.contains("content-table-open")){
-      contentContainer.classList.remove("content-table-open");
-      content.classList.remove("content-open");
-      content.ariaExpanded = false;
-    } else {
-      contentContainer.classList.add("content-table-open");
-      content.classList.add("content-open");
-      content.ariaExpanded = true;
-    }
-}
-
-
 window.onload = init;
 
 // onload function
@@ -120,29 +69,6 @@ function init() {
   for (var i = 0; i < navLinks.length; i++) {
     navLinks[i].addEventListener('click', addEventToLink, false);
   }
-
-  var coll = document.getElementsByClassName("collapsible");
-  var i;
-
-  for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
-      this.classList.toggle("active");
-      var content = this.nextElementSibling;
-      if (content.style.maxHeight){
-        content.style.maxHeight = null;
-        content.style.marginTop = 0 + "px";
-        content.style.marginBottom = 0 + "px";
-        content.classList.remove('animate-content');
-      } else {
-        content.style.marginTop = 60 + "px";
-        content.style.marginBottom = 60 + "px";
-        content.style.maxHeight = 100 + "%";
-        content.classList.add('animate-content');
-      }
-    });
-  }
-
-  setupContentsTable();
 
   myTopButton = document.getElementById("to-top-btn");
 
