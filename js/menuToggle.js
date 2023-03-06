@@ -20,10 +20,11 @@ function toggleMenu(){
 
 
 function escapeFromMenu(event){
-  if(event.key === "Escape" && menuToggle == true)
+  console.log("event: " + event.buttons);
+  if((event.key === "Escape" || event.buttons == 0 ) && menuToggle == true)
     {
       toggleMenu();
-  }
+    }
 }
 
 window.addEventListener("resize", windowChangedSize);
@@ -67,7 +68,7 @@ function init() {
 
   let navLinks = document.getElementsByClassName("closeTab");
   for (var i = 0; i < navLinks.length; i++) {
-    navLinks[i].addEventListener('click', addEventToLink, false);
+    navLinks[i].firstChild.addEventListener('click', escapeFromMenu, true);
   }
 
   myTopButton = document.getElementById("to-top-btn");
