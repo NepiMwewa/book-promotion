@@ -414,6 +414,12 @@ li{
   background-image: url('./assets/blurry-gradient-haikei-2.svg');
   background-position: top;
 }
+.dark-background-content{
+  background-image: url('./assets/blurry-gradient-haikei.svg');
+  margin-top: 0px;
+  padding-top: var(--pageTopMargin);
+  padding-bottom: var(--pageTopMargin);
+}
 .full-height-section{
   min-height: 100vh;
 }
@@ -587,8 +593,7 @@ section{
   display: inline-block;
 }
 
-#section-2,
-#section-5{
+#section-2{
   overflow: hidden;
 }
 
@@ -641,11 +646,19 @@ section{
 .wp-block-cover.make-full-height img{
   height: 100%;
 }
-
+#section-5 .make-colors-bright{
+  gap: 2em;
+}
 #section-5{
   min-height: 100vh;
   min-height: fit-content;
   background-color: var(--color-5);
+}
+#section-5 p a{
+  color: var(--mainBackground);
+}
+#section-5 p a:hover{
+  color: var(--mainAltColor);
 }
 #section-5 p{
   margin-top: 0;
@@ -654,24 +667,84 @@ section{
 #section-5 .add-left-margin{
   margin-left: 1em;
 }
+#section-5.text-img-group .wp-block-columns{
+  display: flex;
+}
+#section-5 .button-89,
+#section-5 h4{
+  margin-left: 1em;
+}
+#section-5 .button-89:hover,
+#section-5 .button-89:focus-visible{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: 0em;
+  background: var(--color);
+  transition: .15s cubic-bezier(0.455, 0.03, 0.515, 0.955), color .5s, background-color .5s;
+}
+#section-5 .button-89:active,
+#section-5 .button-89:focus{
+  color: var(--mainColor);
+}
+
+.media-contact{
+  background-color: var(--color-4);
+  margin-top: 2em;
+  padding: 2em;
+}
+#section-5 .button-group{
+  margin-top: 2em;
+}
+.media-contact .is-layout-flex{
+  align-items: flex-start;
+  margin-top: 1em;
+}
+.media-contact svg{
+  margin-top: 1.2em;
+}
+.media-contact .is-layout-flex:first-child > div{
+  margin-top: 0;
+}
+.media-contact .is-layout-flex:first-child svg{
+  margin-top: .2em;
+}
+
+.pdf-group{
+  box-shadow: var(--color-5) 0px 20px 30px -10px;
+}
+
 
 /* footer form */
+div.wpforms-container-full .wpforms-form input[type=date], div.wpforms-container-full .wpforms-form input[type=datetime], div.wpforms-container-full .wpforms-form input[type=datetime-local], div.wpforms-container-full .wpforms-form input[type=email], div.wpforms-container-full .wpforms-form input[type=month], div.wpforms-container-full .wpforms-form input[type=number], div.wpforms-container-full .wpforms-form input[type=password], div.wpforms-container-full .wpforms-form input[type=range], div.wpforms-container-full .wpforms-form input[type=search], div.wpforms-container-full .wpforms-form input[type=tel], div.wpforms-container-full .wpforms-form input[type=text], div.wpforms-container-full .wpforms-form input[type=time], div.wpforms-container-full .wpforms-form input[type=url], div.wpforms-container-full .wpforms-form input[type=week], div.wpforms-container-full .wpforms-form select, div.wpforms-container-full .wpforms-form textarea{
+  background-color: var(--mainBackground);
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 1.1rem;
+}
+.wpforms-confirmation-container-full, div[submit-success]>.wpforms-confirmation-container-full:not(.wpforms-redirection-message){
+  background: var(--color-2);
+  border: 1px solid var(--color-3);
+}
+.wpforms-confirmation-container-full p{
+  font-size: var(--textSize);
+}
 .form-div.form-div-background{
-	background-color: var(--topbackground);
+	background-color: var(--mainBackground);
 	padding: 1rem;
 	border-radius: 10px;
 	margin-top: 2rem;
 	box-shadow: var(--boxShadow);
 }
-.form-div h3{
-  text-align: center;
+.form-div h3,
+#section-5 h3{
   font-size: 1.7rem;
-  font-family: serif;
+}
+#section-5 h4{
+  font-size: 1.4rem;
 }
 .form-div p{
-  text-align: center;
   font-size: 1rem;
 }
+
 .form-div div.wpforms-container-full .wpforms-form input.wpforms-field-medium,
 .form-div div.wpforms-container-full .wpforms-form select.wpforms-field-medium,
 .form-div div.wpforms-container-full .wpforms-form .wpforms-field-row.wpforms-field-medium{
@@ -698,7 +771,7 @@ section{
 }
 .form-div div.wpforms-container-full .wpforms-form input[type=text]:focus,
 .form-div div.wpforms-container-full .wpforms-form input[type=email]:focus{
-  border-color: black;
+  border-color: var(--mainColor);
   box-shadow: 0px 0px 0px 1px var(--mainBackground);
 }
 .form-div div.wpforms-container-full .wpforms-form button[type=submit]{
@@ -921,7 +994,6 @@ Responsive Design
   #section-3,
   #section-4{
     min-height: auto;
-    max-height: 100vh;
     overflow-y: hidden;
   }
   .text-section-right{
@@ -952,6 +1024,7 @@ Responsive Design
     -webkit-flex-direction: column-reverse;
     flex-direction: column-reverse;
   }
+
   .wp-block-columns:not(.is-not-stacked-on-mobile){
     flex-wrap: wrap!important;
   }
@@ -1057,6 +1130,12 @@ Responsive Design
   #section-5 .text-group{
     margin: var(--sideMargin);
   }
+  #section-5 .add-left-margin {
+    margin-left: 0;
+  }
+  .pdf-group{
+    margin: 0px 1em;
+  }
 
   .single-post{
     margin: 0px;
@@ -1099,14 +1178,27 @@ Responsive Design
 @media screen and (max-width: 570px) {
   :root{
     --h1Size: 3.5rem;
+    --h2Size: 3.5rem;
   }
   .button-group{
     flex-direction: column;
+  }
+  .button-group .button-89{
+    display: block;
+    text-align: center;
+  }
+  #section-5 .button-89, #section-5 h4{
+    margin-left: 0;
   }
 }
 @media screen and (max-width: 400px) {
   :root{
     --h1Size: 2.5rem;
+    --h2Size: 2.5rem;
+  }
+  
+  #title-group.text-img-group figure > img{
+    box-sizing: border-box;
   }
 }
 @media screen and (max-width: 350px) {
@@ -1119,10 +1211,14 @@ Responsive Design
     margin: 2rem 0px;
     text-align: center;
   }
+  #title-group.text-img-group figure{
+    margin: auto var(--sideMargin);
+  }
 }
 @media screen and (max-width: 328px) {
   :root{
-    --h1Size: 3rem;
+    --h1Size: 2.2rem;
+    --h2Size: 2.2rem;
   }
 }
 
